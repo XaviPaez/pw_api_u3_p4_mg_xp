@@ -70,4 +70,10 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository{
 		return myQuery.getResultList();
 	}
 
+	@Override
+	public Estudiante insertarPorId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
