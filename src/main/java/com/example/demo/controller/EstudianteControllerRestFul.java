@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Link;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.repository.modelo.Estudiante;
 import com.example.demo.service.IEstudianteService;
+import com.example.demo.service.to.EstudianteTO;
+import com.example.demo.service.to.MateriaTO;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping("/estudiantes")
@@ -82,4 +88,20 @@ public class EstudianteControllerRestFul {
 		return new ResponseEntity<>(lista,cabeceras,228);
 		//return this.estudianteService.buscarTodos();
 	}
+	
+	@GetMapping(path = "/hateoas")
+	public ResponseEntity<List<EstudianteTO>> consultarTodosHATEOAS() {
+		List<EstudianteTO> lista= this.estudianteService.buscarTodos();
+		for (EstudianteTO e : lista) {
+			Link myLink = linkTo(methodOn(EstudianteControllerRestFul.class).buscarPorEstudiante(e.getCedula())).withRel("materias");
+			e.add(myLink);
+		}
+		return new ResponseEntity<>(lista,null,200);
+	}
+	
+	@GetMapping(path = "/{cedula}/materias")
+	public ResponseEntity<List<MateriaTO>> buscarPorEstudiante(@PathVariable String cedula){
+		return null;
+	}
+	
 }

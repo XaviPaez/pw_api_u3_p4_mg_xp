@@ -14,15 +14,15 @@ import jakarta.transaction.Transactional;
 
 @Repository
 @Transactional
-public class EstudianteRepositoryImpl implements IEstudianteRepository{
-	
+public class EstudianteRepositoryImpl implements IEstudianteRepository {
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
 	public Estudiante seleccionarPorCedula(String cedula) {
-		TypedQuery<Estudiante> myQuery = this.entityManager.createQuery(
-				"SELECT e FROM Estudiante e WHERE e.cedula = :datoCedula", Estudiante.class);
+		TypedQuery<Estudiante> myQuery = this.entityManager
+				.createQuery("SELECT e FROM Estudiante e WHERE e.cedula = :datoCedula", Estudiante.class);
 		myQuery.setParameter("datoCedula", cedula);
 		return myQuery.getSingleResult();
 	}
@@ -42,7 +42,8 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository{
 	@Override
 	public void actualizarParcial(String cedulaActual, String cedulaNueva) {
 		// TODO Auto-generated method stub
-		Query myQuery=this.entityManager.createQuery("UPDATE Estudiante e SET e.cedula=:datoCedula WHERE e.cedula=:datoCondicion");
+		Query myQuery = this.entityManager
+				.createQuery("UPDATE Estudiante e SET e.cedula=:datoCedula WHERE e.cedula=:datoCondicion");
 		myQuery.setParameter("datoCedula", cedulaNueva);
 		myQuery.setParameter("datoCondicion", cedulaActual);
 		myQuery.executeUpdate();
@@ -64,8 +65,8 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository{
 	@Override
 	public List<Estudiante> buscarTodos(String provincia) {
 		// TODO Auto-generated method stub
-		TypedQuery<Estudiante> myQuery = this.entityManager.createQuery(
-				"SELECT e FROM Estudiante e WHERE e.provincia = :datoProvincia", Estudiante.class);
+		TypedQuery<Estudiante> myQuery = this.entityManager
+				.createQuery("SELECT e FROM Estudiante e WHERE e.provincia = :datoProvincia", Estudiante.class);
 		myQuery.setParameter("datoProvincia", provincia);
 		return myQuery.getResultList();
 	}
@@ -74,6 +75,14 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository{
 	public Estudiante insertarPorId() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Estudiante> buscarTodos() {
+		// TODO Auto-generated method stub
+		TypedQuery<Estudiante> myQuery = this.entityManager.createQuery("SELECT e FROM Estudiante e", Estudiante.class);
+
+		return myQuery.getResultList();
 	}
 
 }

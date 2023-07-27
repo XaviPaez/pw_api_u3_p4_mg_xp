@@ -2,6 +2,8 @@ C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_a
 C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_api_u3_p4_mg_xp\src\main\java\com\example\demo\repository\IEstudianteRepository.java
 C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_api_u3_p4_mg_xp\src\main\java\com\example\demo\repository\modelo\Estudiante.java
 C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_api_u3_p4_mg_xp\src\main\java\com\example\demo\service\IEstudianteService.java
+C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_api_u3_p4_mg_xp\src\main\java\com\example\demo\service\to\EstudianteTO.java
 C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_api_u3_p4_mg_xp\src\main\java\com\example\demo\repository\EstudianteRepositoryImpl.java
+C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_api_u3_p4_mg_xp\src\main\java\com\example\demo\service\to\MateriaTO.java
 C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_api_u3_p4_mg_xp\src\main\java\com\example\demo\controller\EstudianteControllerRestFul.java
 C:\Users\fing.labcom\Documents\workspace-spring-tool-suite-4-4.19.0.RELEASE\pw_api_u3_p4_mg_xp\src\main\java\com\example\demo\PwApiU3P4MgXpApplication.java
