@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -31,6 +32,7 @@ import com.example.demo.service.to.MateriaTO;
 
 @RestController
 @RequestMapping("/estudiantes")
+@CrossOrigin
 public class EstudianteControllerRestFul {
 
 	@Autowired
@@ -40,7 +42,7 @@ public class EstudianteControllerRestFul {
 	private IMateriaService iMateriaService;
 
 	// GET
-	@GetMapping(path = "/{cedula}", produces = MediaType.APPLICATION_XML_VALUE)
+	@GetMapping(path = "/{cedula}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
 
 	public Estudiante consultarPorCedula(@PathVariable String cedula) {
