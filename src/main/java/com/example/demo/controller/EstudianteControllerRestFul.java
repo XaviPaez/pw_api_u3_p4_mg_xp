@@ -49,14 +49,14 @@ public class EstudianteControllerRestFul {
 		return this.estudianteService.consultarPorCedula(cedula);
 	}
 
-	@PostMapping(consumes = "application/xml")
+	@PostMapping(consumes = "application/json")
 	// estudiante debe venir en el cuerpo del request
 	public void guardar(@RequestBody Estudiante estudiante) {
 
 		this.estudianteService.guardar(estudiante);
 	}
 
-	@PostMapping(path = "/guardar", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
+	@PostMapping(path = "/guardar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Estudiante guardar2(@RequestBody Estudiante estudiante) {
 
 		this.estudianteService.guardar(estudiante);
@@ -79,9 +79,12 @@ public class EstudianteControllerRestFul {
 	}
 
 	@DeleteMapping(path = "/{id}")
-	public void borrar(@PathVariable Integer id) {
+	public  ResponseEntity<Estudiante> borrar(@PathVariable Integer id) {
+		Estudiante estudiante= this.estudianteService.consultarPorId(id);
 		this.estudianteService.eliminar(id);
+		return new ResponseEntity<>(estudiante, null, 200);
 	}
+	
 
 	@GetMapping
 	public ResponseEntity<List<Estudiante>> consultarTodosPorProvincia(@RequestParam String provincia) {
